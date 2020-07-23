@@ -110,7 +110,7 @@ class SAML2AttrEmailUserBackend(RemoteUserBackend):
         try:
             first_name = user_ident['first_name'][0].lower()
             last_name = user_ident['last_name'][0].lower()
-            username = user_ident['email'].split("@")[0].lower()
+            username = user_ident['email'][0].split("@")[0].lower()
             remote_user = username
             return super().authenticate(request, remote_user)
 
